@@ -129,10 +129,134 @@ name="banyuel school"
 rate=1
 =end
 ```
+
+##new chapter PUTTING THE FORM IN FORMATTER
+##What You'll Be Building
+read a user’s input and correct his or her capitalization.
+```
+print "What's your first name? "
+first_name = gets.chomp
+first_name.capitalize!
+ 
+print "What's your last name? "
+last_name = gets.chomp
+last_name.capitalize!
+ 
+print "What city are you from? "
+city = gets.chomp
+city.capitalize!
+ 
+print "What state or province are you from? "
+state = gets.chomp
+state.upcase!
+ 
+puts "Your name is #{first_name} #{last_name} and you're from #{city}, #{state}!"
+```
+##Prompting the User
+```
+print "What's your first name?"
+```
+##Getting Input
+```
+variable_name= gets.chomp
+```
+gets is the Ruby method that gets input from the user. When getting input, Ruby automatically adds a blank line (or newline) after each bit of input; chompremoves that extra line. (Your program will work fine without chomp, but you’ll get extra blank lines everywhere.)
+```
+print "What's your first name?"
+first_name=gets.chomp
+```
+##Repeat for More Input
+```
+print "What's your first name?"
+first_name=gets.chomp
+print "What's your last name?"
+last_name=gets.chomp
+print "Which city are you from?"
+city= gets.chomp
+print "Which state are you from?"
+state = gets.chomp
+```
+##Printing the Output
+```
+print "What's your first name?"
+first_name=gets.chomp
+puts first_name
+print "What's your last name?"
+last_name=gets.chomp
+puts last_name
+print "Which city are you from?"
+city= gets.chomp
+puts city
+print "Which state are you from?"
+state = gets.chomp
+puts state
+ 
+puts "My name is #{first_name} #{last_name} and I am from #{city},  #{state}."
+```
+=begin
+What's your first name?
+gloria
+What's your last name?
+chen
+Which city are you from?
+melbourne
+Which state are you from?
+Victoria
+My name is gloria chen and I am from melbourne,victoria.
+=end
+##Formatting with String Methods
+```
+print "This is my question?"
+answer = gets.chomp
+answer2 = answer.capitalize 
+answer.capitalize!
+```
+1.It capitalizes the first letter of a string and makes the rest of the letters lower case.We assign the result to answer2
+2.the next line might look a little strange, we don’t assign the result of capitalize to a variable. Instead you might notice the ! at the end of capitalize. This modifies the value contained within the variable answer itself. The next time you use the variable answer you will get the results of answer.capitalize
+```
+print "What's your first name? "
+first_name = gets.chomp
+first_name.capitalize!
+ 
+print "What's your last name? "
+last_name = gets.chomp
+last_name.capitalize!
+ 
+print "What city are you from? "
+city = gets.chomp
+city.capitalize!
+ 
+print "What state or province are you from? "
+state = gets.chomp
+state.upcase!
+ 
+puts "Your name is #{first_name} #{last_name} and you're from #{city}, #{state}!"
+```
+=begin
+What's your first name?
+Gloria
+What's your last name?
+Chen
+Which city are you from?
+Melbourne
+Which state are you from?
+VICTORIA
+My name is Gloria Chen and I am from Melbourne,VICTORIA.
+=end
+ 
+# NEW CHAPTER CONTROL FLOW IN RUBY
+##How It Works
+they always produce the same result based on that input; they don’t change their behavior in reaction to the environment (the collection of all variables and their values that exist in the program at a given time).
+they always produce the same result based on that input; they don’t change their behavior in reaction to the environment (the collection of all variables and their values that exist in the program at a given time).
+Control flow gives us the flexibility we’re looking for. We can select different outcomes depending on information the user types, the result of a computation, or the value returned by another part of the program.
  
  
  
-nehC airolG
+ 
+ 
+ 
+ 
+
 
 
 
