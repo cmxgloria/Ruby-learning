@@ -312,6 +312,158 @@ end
 ## 10 is greater than 5, so I'm being printed!
 ```
 
+##Unless
+```
+hungry = false
+unless hungry
+puts "I'm writing Ruby programs!"
+else
+puts "Time to eat!"
+end
+##I'm writing Ruby programs!
+```
+
+##Equal or Not?
+```
+is_true = 2 != 3
+
+is_false = 2 == 3
+```
+
+##Less Than or Greater Than
+Less than: <
+Less than or equal to: <=
+Greater than: >
+Greater than or equal to: >=
+```
+test_1 = 17 > 16
+
+test_2 = 21 < 30
+
+test_3 = 9 >= 9
+
+test_4 = -11 < 4
+```
+##
+Practice Makes Perfect
+```
+# test_1 = 77 != 77
+test_1 = false
+# test_2 = -4 <= -4
+test_2 = true
+# test_3 = -44 < -33
+test_3 = true
+# test_4 = 100 == 1000
+test_4 = false
+```
+##And
+Comparators aren’t the only operators available to you in Ruby. You can also use logical or boolean operators. Ruby has three: and (&&), or (||), and not (!). Boolean operators result in boolean values: true or false.
+
+The boolean operator and, &&, only results in true when both expression on either side of && are true. Here’s how && works:
+
+true && true # => true
+true && false # => false
+false && true # => false
+false && false # => false
+For example, 1 < 2 && 2 < 3 is true because it’s true that one is less than two and that two is less than three.
+```
+# boolean_1 = 77 < 78 && 77 < 77
+boolean_1 = false
+
+# boolean_2 = true && 100 >= 100
+boolean_2 = true
+
+# boolean_3 = 2**3 == 8 && 3**2 == 9
+boolean_3 = true
+```
+
+##Or
+Ruby also has the or operator (||). Ruby’s || is called an inclusive or because it evaluates to true when one or the other or both expressions are true. Check it out:
+
+true || true # => true
+true || false # => true
+false || true # => true
+false || false # => false
+
+##Not
+!true # => false
+!false # => true
+```
+# boolean_1 = !true
+boolean_1 = false
+
+# boolean_2 = !true && !true
+boolean_2 = false
+
+# boolean_3 = !(700 / 10 == 70)
+boolean_3 = false
+```
+Combining Boolean Operators
+```
+# boolean_1 = (3 < 4 || false) && (false || true)
+boolean_1 = true
+
+# boolean_2 = !true && (!true || 100 != 5**2)
+boolean_2 =false
+
+# boolean_3 = true || !(true || false)
+boolean_3 = true
+```
+
+##If, Else, and Elsif
+```
+a = 10
+b = 11
+if a < b
+  print "a is less than b!"
+elsif b < a
+  print "b is less than a!"
+else
+  print "b is equal to a!"
+end
+##a is less than b!
+```
+
+##Unless
+```
+hungry = false
+print "Let us play out." unless hungry
+##Let us play out.
+```
+
+##Dare to Compare
+Now let’s review comparators / relational operators. We’ve turned the tables a bit!
+
+Remember, comparators need to compare two values to each other to result in true or false
+
+10 > 8 # true
+8 > 10 # false
+8 == 10 # false
+8 != 10 # true
+
+##Billions of Booleans
+Home stretch! Let’s go over boolean operators.
+
+( 1 == 1 ) && ( 2 == 2 )  # true
+( 1 == 2 ) || ( 2 == 2 ) # true
+!( false ) # true
+With && both comparisons on the left and right must evaluate to true for the entire statement to return true. If the left side does not return true it will not bother trying the right side
+With || either the right or left side must evaluate to true. If the left side evaluates to true, the right side will not be tried because it has met the condition of one side being true.
+With ! you reverse the result. If you’re false you’re now true. if you’re true you’re now false! Just think of it as opposite day!
+```
+# test_1 should be true
+test_1 = (8==8)&&(-1==-1)
+
+# test_2 = should be true
+test_2 = (7>5)||(6>5)
+
+# test_3 = should be false
+test_3 = !(true)
+```
+
+
+
+
  
  
  
