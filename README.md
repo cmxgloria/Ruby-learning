@@ -30,15 +30,18 @@ Multiplication (*)
 Division (/)
 Exponentiation (**)
 Modulo (%)
+
 ##'puts' and 'print'
 The print command just takes whatever you give it and prints it to the screen. puts (for “put string”) is slightly different: it adds a new (blank) line after the thing you want it to print. You use them like this:
 puts "What's up?"
 print "Oxnard Montalvo"
 No parentheses or semicolons needed!
 ```
-puts "I am learning ruby now."
-print "Busy day but meaningful!"
+puts "I am learning ruby with my laptop"
+print " at home!"
+// I am learning rubu with my laptop at home! (noted leave space before the first word in print)
 ```
+
 ##Everything in Ruby is an Object
 Because everything in Ruby is an object (more on this later), everything in Ruby has certain built-in abilities called methods. You can think of methods as “skills” that certain objects have. For instance, strings (words or phrases) have built-in methods that can tell you the length of the string, reverse the string, and more.
 We also promised to tell you more about the interpreter. The interpreter is the program that takes the code you write and runs it. You type code in the editor, the interpreter reads your code, and it shows you the result of running your code in the console.
