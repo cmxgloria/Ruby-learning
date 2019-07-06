@@ -513,7 +513,41 @@ The syntax looks like this: rb string_to_change.gsub!(/s/, "th")
 When we get to later lessons, we’ll explain why the /s/ has to be between slashes instead of between quotes. Note: you cannot put a space between gsub! and the bit in parentheses.
 
 
- 
+Setting Up the 'Else' Branch
+
+Returning the Final String—Er, "Thtring"
+Home stretch—now we want to display the Daffy Duckified string to the user. You can do that using the string interpolation we learned earlier:
+```
+my_string = "muchachos"
+print "Adios, #{my_string}!"
+# ==> "Adios, muchachos!"
+```
+
+```
+print "Pleathe enter a thtring: " 
+user_input = gets.chomp
+user_input.downcase!
+
+if user_input.include? "s"
+  user_input.gsub!(/s/, "th")
+else
+  puts "There are no 's's in your string."
+end
+
+puts "Your new thtring is #{user_input}."
+```
+#print: Pleathe enter a thtring: sting
+Your new thtring is thting.
+
+
+Congratulationth!
+Great work!
+
+How might you improve this project? You could:
+
+Add an additional if statement to re-prompt the user for input if they don’t enter anything
+Think about how you might account for words in which the letter “c” sounds like an “s”
+Think about how you might preserve the user’s original capitalization
  
 
 
