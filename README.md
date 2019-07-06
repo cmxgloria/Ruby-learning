@@ -489,9 +489,30 @@ print "Pleathe enter a thtring: "
 user_input = gets.chomp
 ```
  
+Downcase!
+We want to make sure we capture both "S" and "s"
+
+Setting Up the 'If' Branch, Part 1
+```
+print "Pleathe enter a thtring: " 
+user_input = gets.chomp
+user_input.downcase!
+
+if user_input.include? "s"
+  print "This string has an s."
+end
+```
+#Pleathe enter a thtring: singing
+This string has an s.
  
- 
- 
+ Setting Up the 'If' Branch, Part 2
+ When we find "s", we want Ruby to replace every instance of "s" it finds with "th". We can do this with the .gsub! method, which stands for global substitution.
+
+The syntax looks like this: rb string_to_change.gsub!(/s/, "th")
+
+When we get to later lessons, we’ll explain why the /s/ has to be between slashes instead of between quotes. Note: you cannot put a space between gsub! and the bit in parentheses.
+
+
  
  
 
