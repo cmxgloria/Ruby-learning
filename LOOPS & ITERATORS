@@ -11,3 +11,58 @@ end
 ```
 
 The 'Until' Loop
+```
+counter = 1
+until counter > 10
+  puts counter
+  # Add code to update 'counter' here!
+  counter += 1
+end
+```
+
+More Assignment Operators
+ +=, -=, *=, and /=.
+ 
+ The 'For' Loop
+ ```
+ for num in 1...10
+  puts num
+end
+#1 2 3 4 5 6 7 8 9
+```
+
+Inclusive and Exclusive Ranges
+The reason this program counted to 9 and not 10 was that we used three dots in the range; this tells Ruby to exclude the final number in the count: for num in 1...10 means “go up to but don’t include 10.” If we use two dots, this tells Ruby to include the highest number in the range.
+```
+for num in 1..15
+  puts num
+end
+# print 1 to 15 includidng
+```
+
+Building Your Own
+```
+for num in 1..20
+   puts num
+ end
+ ```
+ The Loop Method
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
