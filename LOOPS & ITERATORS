@@ -47,7 +47,41 @@ for num in 1..20
  end
  ```
  The Loop Method
- 
+ loop { print "Hello, world!" }
+In Ruby, curly braces ({}) are generally interchangeable with the keywords do (to open the block) and end (to close it). Knowing this, we can write a smarter loop than the one above: rb i = 0 loop do i += 1 print "#{i}" break if i > 5 end
+
+The break keyword is our Get Out of Jail Free card: it breaks a loop as soon as its condition is met.
+```
+i = 20
+loop do 
+  i -= 1
+  print "#{i}"
+ break if i <= 0
+end
+# 191817161514131211109876543210
+```
+
+Next!
+```
+i = 20
+loop do
+  i -= 1
+  next if i % 2 != 0
+  print "#{i}"
+  break if i <= 0
+end
+#181614121086420
+```
+ sample
+ ```
+ for i in 1..5
+  next if i%2==0
+  print i
+end
+#135
+```
+
+
 
 
 
