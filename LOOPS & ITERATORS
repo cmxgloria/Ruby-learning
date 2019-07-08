@@ -81,9 +81,34 @@ end
 #135
 ```
 
+Saving Multiple Values
+array
+
+The .each Iterator
+ The syntax looks like this:
+
+object.each { |item| 
+  # Do something 
+}
+You can also use the do keyword instead of {}:
+
+object.each do |item| 
+  # Do something 
+end
+The variable name between | | can be anything you like: it’s just a placeholder for each element of the object you’re using .each on.
 
 
+```
+array = [1,2,3,4,5]
 
+array.each do |x|
+  x += 10
+  print "#{x}"
+end
+#1112131415
+```
+
+Try It Out!
 
 
 
