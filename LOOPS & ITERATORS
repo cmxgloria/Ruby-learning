@@ -109,7 +109,64 @@ end
 ```
 
 Try It Out!
+```
+odds = [1,3,5,7,9]
+odds.each do |odd| 
+  print odd*2
+end
+#26101418
+```
+Make sure to use print rather than puts, so your output appears on one line.
 
+
+```
+numbers = [1, 2, 3, 4, 5]
+
+# one way to loop
+numbers.each { |item| puts item }
+
+# another way to loop
+numbers.each do |item|
+  puts item
+end
+#
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+
+```
+
+
+The .times Iterator
+```
+10.times { print "Chunky bacon!" }
+```
+
+Looping with 'While'
+```
+i = 3
+while i > 0 do
+  print i
+  i -= 1
+end
+```
+sample
+```
+i = 1
+while i <= 50
+  print i
+  i += 1
+end
+```
+
+Looping with 'Until'
 
 
 
