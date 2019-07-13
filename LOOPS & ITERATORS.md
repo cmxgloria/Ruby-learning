@@ -214,8 +214,71 @@ Iterating with .times
 30.times {print "Ruby!"}
 ```
 
+# Redact
+```
+puts "Text to search through: "
+text = gets.chomp
+puts "Word to redact: "
+redact = gets.chomp
 
+words = text.split(" ")
 
+words.each do |word|
+  if word != redact
+    print word + " "
+  else
+    print "REDACTED "
+  end
+end
+```
+//Text to search through: 
+i am the queen
+Word to redact: 
+you are my girl
+i am the queen
+
+Getting the User's Input
+
+The .split Method
+Ruby has a built-in method for this called .split; it takes in a string and returns an array. If we pass it a bit of text in parentheses, .split will divide the string wherever it sees that bit of text, called a delimiter. For example,
+
+text.split(",")
+tells Ruby to split up the string text whenever it sees a comma.
+
+redact
+```
+puts "Enter some text: "
+text = gets.chomp
+
+puts "Enter words to redact: "
+redact = gets.chomp
+
+words = text.split(" ")
+words.each { | word | print word }
+```
+//Enter some text: 
+how big is it
+Enter words to redact: 
+it is small.
+howbigisit
+
+Control Flow Know-How
+```
+puts "Enter some text: "
+text = gets.chomp
+
+puts "Enter words to redact: "
+redact = gets.chomp
+
+words = text.split(" ")
+words.each { |word| 
+  if word == redact
+    print "REDACTED "
+  else
+ 		print word + " "
+  end }
+  ```
+  
 
 
 
