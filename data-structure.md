@@ -17,3 +17,29 @@ print string_array[3]
 ```
 
 Arrays of Arrays
+```
+multi_d_array = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+
+multi_d_array.each { |x| puts "#{x}\n" }
+#[0, 0, 0, 0]
+
+[0, 0, 0, 0]
+
+[0, 0, 0, 0]
+
+[0, 0, 0, 0]
+```
+
+Create Your Own
+See how a two-dimensional array 
+```
+my_2d_array = [[1,2,3],['apple','grape','banana'],[true,false,true]]
+print my_2d_array.each{|x| puts "#{x}\n"}
+# [1, 2, 3]
+
+["apple", "grape", "banana"]
+
+[true, false, true]
+
+[[1, 2, 3], ["apple", "grape", "banana"], [true, false, true]]
+```
