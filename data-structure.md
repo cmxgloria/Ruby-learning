@@ -136,3 +136,66 @@ turkey
 cheddar
 roast beef
 gruyere
+
+Iterating Over Hashes
+```
+secret_identities = {
+  "The Batman" => "Bruce Wayne",
+  "Superman" => "Clark Kent",
+  "Wonder Woman" => "Diana Prince",
+  "Freakazoid" => "Dexter Douglas"
+}
+  
+secret_identities.each do |hero, name| 
+  puts "#{hero}: #{name}"
+end
+```
+#The Batman:Bruce Wayne
+Superman:Clark Kent
+Wonder Woman:Diana Prince
+Freakazoid:Dexter Douglas
+
+
+Multidimensional Arrays
+```
+my_array = [['apple','grape'],[1,4],[true,false]]
+puts my_array
+```
+
+Hashes
+```
+prices = { 
+  "apple" => 0.52,
+  "banana" => 0.23,
+  "kiwi" => 1.42
+}
+
+sounds = Hash.new
+sounds["dog"] = "woof"
+sounds["cat"] = "meow"
+```
+Iterating Over a Hash
+```
+lunch_order = {
+  "Ryan" => "wonton soup",
+  "Eric" => "hamburger",
+  "Jimmy" => "sandwich",
+  "Sasha" => "salad",
+  "Cole" => "taco"
+}
+
+lunch_order.each do |person, order| 
+  puts order
+end
+```
+#wonton soup
+hamburger
+sandwich
+salad
+taco
+
+or can use this one to replace
+"lunch_order.each do |person, order| 
+  puts order
+end"
+lunch_order.each{|person,order| puts order}
