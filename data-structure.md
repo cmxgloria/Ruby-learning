@@ -43,3 +43,96 @@ print my_2d_array.each{|x| puts "#{x}\n"}
 
 [[1, 2, 3], ["apple", "grape", "banana"], [true, false, true]]
 ```
+Introduction to Hashes
+hash is a collection of key-value pairs. Hash syntax looks like this:
+
+hash = {
+  key1 => value1,
+  key2 => value2,
+  key3 => value3
+}
+Values are assigned to keys using =>. You can use any Ruby object for a key or value.
+```
+my_hash = { "name" => "Eric",
+  "age" => 26,
+  "hungry?" => true
+}
+
+puts my_hash["name"]
+puts my_hash["age"]
+puts my_hash["hungry?"]
+```
+
+Using Hash.new
+You can also create a hash using Hash.new, like so:
+
+my_hash = Hash.new
+Setting a variable equal to Hash.new creates a new, empty hash; it’s the same as setting the variable equal to empty curly braces ({}).
+
+Adding to a Hash
+```
+pets = Hash.new
+pets["Stevie"] = "cat"
+# Adds the key "Stevie" with the
+# value "cat" to the hash
+```
+
+Accessing Hash Values
+```
+pets = {
+  "Stevie" => "cat",
+  "Bowser" => "hamster",
+  "Kevin Sorbo" => "fish"
+}
+
+puts pets["Stevie"]
+# will print "cat"
+```
+
+Re)Introduction to Iteration
+```
+friends = ["Milhouse", "Ralph", "Nelson", "Otto"]
+
+family = { "Homer" => "dad",
+  "Marge" => "mom",
+  "Lisa" => "sister",
+  "Maggie" => "sister",
+  "Abe" => "grandpa",
+  "Santa's Little Helper" => "dog"
+}
+
+friends.each { |x| puts "#{x}" }
+family.each { |x, y| puts "#{x}: #{y}" }
+```
+#Milhouse
+Ralph
+Nelson
+Otto
+Homer: dad
+Marge: mom
+Lisa: sister
+Maggie: sister
+Abe: grandpa
+Santa's Little Helper: dog
+
+Iterating Over Arrays
+
+```
+languages = ["HTML", "CSS", "JavaScript", "Python", "Ruby"]
+languages.each{|language| puts language}
+
+```
+
+Iterating Over Multidimensional Arrays
+
+```
+s = [["ham", "swiss"], ["turkey", "cheddar"], ["roast beef", "gruyere"]]
+
+s.each { |sub_array| sub_array.each { |element| puts element }}
+```
+#ham
+swiss
+turkey
+cheddar
+roast beef
+gruyere
