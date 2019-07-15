@@ -249,3 +249,81 @@ frequencies.each do |word, frequency|
 end
 ```
 
+
+# METHODS, BLOCKS, & SORTING
+Why Methods?
+```
+def prime(n)
+  puts "That's not an integer." unless n.is_a? Integer
+  is_prime = true
+  for i in 2..n-1
+    if n % i == 0
+      is_prime = false
+    end
+  end
+  if is_prime
+    puts "#{n} is prime!"
+  else
+    puts "#{n} is not prime."
+  end
+end
+
+prime(2)
+prime(9)
+prime(11)
+prime(51)
+prime(97)
+```
+
+Methold Syntax
+he header, which includes the def keyword, the name of the method, and any arguments the method takes. (We’ll get to arguments in the next section)
+The body, which is the code block that describes the procedures the method carries out. The body is indented two spaces by convention (as with for, if, elsif, and else statements)
+The method ends with the end keyword.
+```
+def puts_1_to_10
+  (1..10).each { |i| puts i }
+end
+
+puts_1_to_10 
+#1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+create your own
+```
+def greeting
+puts "Hello, Rubyist!"
+end
+greeting
+```
+#Hello, Rubyist!
+
+call it!
+if you call a method called cartoon_fox, the program will start looking for the method with that name and try to execute the code inside it.
+
+If the program doesn’t find a method called cartoon_fox, it will return a NameError. We’ll cover errors in another lesson.
+```
+def array_of_10
+  puts (1..10).to_a
+end
+array_of_10
+```
+#[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Parameters and Arguments
+```
+def cubertino(n)
+  puts n ** 3
+end
+
+cubertino(8)
+```
+#512
+
