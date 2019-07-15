@@ -219,3 +219,33 @@ girl 1
 a 1
 am 1
 i 1
+
+Sorting the Hash
+```
+colors = { 
+  "blue" => 3,
+  "green" => 1,
+  "red" => 2
+}
+colors = colors.sort_by do |color, count|
+  count
+end
+colors.reverse!
+```
+ sample
+ ```
+ puts "Text please: "
+text = gets.chomp
+
+words = text.split
+
+frequencies = Hash.new(0)
+words.each{|word| frequencies[word]+=1}
+frequencies = frequencies.sort_by do |k,v|
+end
+frequencies.reverse!
+frequencies.each do |word, frequency|
+  puts word + " " + frequency.to_s
+end
+```
+
