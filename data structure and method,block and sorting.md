@@ -397,4 +397,146 @@ end
 1.times { puts "As am I!" }
 ```
 How Blocks Differ from Methods
+```
+# method that capitalizes a word
+def capitalize(string) 
+  puts "#{string[0].upcase}#{string[1..-1]}"
+end
+
+capitalize("ryan") # prints "Ryan"
+capitalize("jane") # prints "Jane"
+
+# block that capitalizes each string in the array
+["ryan", "jane"].each {|string| puts "#{string[0].upcase}#{string[1..-1]}"} # prints "Ryan", then "Jane"
+```
+#Ryan
+Jane
+Ryan
+Jane
+
+Using Code Blocks
+```
+# The block, {|i| puts i}, is passed the current
+# array item each time it is evaluated. This block
+# prints the item. 
+[1, 2, 3, 4, 5].each { |i| puts i }
+
+# This block prints the number 5 for each item.
+# (It chooses to ignore the passed item, which is allowed.)
+[1, 2, 3, 4, 5].each { |i| puts 5*i } 
+```
+#1
+2
+3
+4
+5
+5
+10
+15
+20
+25
+
+
+Introduction to Sorting
+```
+my_array = [3, 4, 8, 7, 1, 6, 5, 9, 2]
+
+# Call the sort! method on my_array below.
+# my_array should then equal [1, 2, 3, 4, 5, 6, 7, 8, 9].
+my_array.sort!
+puts my_array
+```
+#[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+Foundations
+```
+# library sorting code
+books = ["Charlie and the Chocolate Factory", "War and Peace", "Utopia", "A Brief History of Time", "A Wrinkle in Time"]
+
+# How might we sort! the books in alphabetical order? (Hint, hint)
+books.sort!
+puts books
+```
+#["A Brief History of Time", "A Wrinkle in Time", "Charlie and the Chocolate Factory", "Utopia", "War and Peace"]
+
+The Combined Comparison Operator
+```
+book_1 = "A Wrinkle in Time"
+
+book_2 = "A Brief History of Time"
+book_1<=>book_2
+
+```
+
+Getting Technical
+```
+books = ["Charlie and the Chocolate Factory", "War and Peace", "Utopia", "A Brief History of Time", "A Wrinkle in Time"]
+
+# To sort our books in ascending order, in-place
+books.sort! { |firstBook, secondBook| firstBook <=> secondBook }
+puts books
+# Sort your books in descending order, in-place below
+books.sort! {|firstBook, secondBook| secondBook<=> firstBook}
+puts books
+```
+#["A Brief History of Time", "A Wrinkle in Time", "Charlie and the Chocolate Factory", "Utopia", "War and Peace"]
+["War and Peace", "Utopia", "Charlie and the Chocolate Factory", "A Wrinkle in Time", "A Brief History of Time"]
+
+
+Basic Methods
+```
+def welcome
+  puts "Welcome to Ruby!"
+end
+
+welcome
+```
+#Welcome to Ruby
+
+Methods With Arguments
+```
+def welcome(name)
+  return "Hello, #{name}!"
+end
+
+welcome("Jamie")
+```
+
+Blocks
+```
+numbers = [5, 2, 8]
+sum = 0
+numbers.each do |n|
+  sum += n
+end
+puts sum
+```
+ another sample
+ ```
+ my_array = [1, 2, 3, 4, 5]
+
+my_array.each do |num|
+  puts num * num
+end
+
+```
+#1
+4
+9
+16
+25
+
+
+Sorting
+```
+fruits = ["orange", "apple", "banana", "pear", "grapes"]
+
+fruits.sort! do |fruitOne, fruitTwo| 
+  fruitTwo <=> fruitOne
+end
+puts fruits
+  ```
+  #["pear", "orange", "grapes", "banana", "apple"]
+
 
