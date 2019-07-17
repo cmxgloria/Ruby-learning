@@ -349,3 +349,52 @@ hello , Zenas!
 hello , Eleanor!
 
 Let's Learn Return
+```
+def double(n)
+  return n * 2
+end
+
+output = double(6)
+output += 2
+puts output
+```
+
+In the example above, we define a new method called double that accepts one argument called n.
+Inside the method, we return two times n.
+After that, we call our new double method with an argument of 6 and store the result, 12, in output.
+Then, we increase output to 14 and print it out to the console.
+
+
+Practice Makes Perfect
+```def by_five?(n)
+  return n % 5== 0
+end
+```
+sample
+```
+def greeter(name)
+  return "Hello, #{name}!"
+end
+
+def by_three?(num)
+  if num % 3 == 0
+    return true
+  else
+    return false
+  end
+end
+```
+
+Blocks Are Like Nameless Methods
+Most methods that you’ve worked with have defined names that either you or someone else gave them (i.e. [array].sort(), “string”.downcase(), and so on). You can think of blocks as a way of creating methods that don’t have a name. (These are similar to anonymous functions in JavaScript or lambdas in Python.)
+
+Blocks can be defined with either the keywords do and end or with curly braces ({}).
+```
+1.times do
+  puts "I'm a code block!"
+end
+
+1.times { puts "As am I!" }
+```
+How Blocks Differ from Methods
+
