@@ -497,3 +497,57 @@ end
 lion king
 Sorry, I didn't understand you.
 
+Setting Up
+```
+movies = {
+  StarWars: 4.8, 
+  Divergent: 4.7
+  }
+
+puts "What would you like to do? "
+puts "-- Type 'add' to add a movie."
+puts "-- Type 'update' to update a movie."
+puts "-- Type 'display' to display all movies."
+puts "-- Type 'delete' to delete a movie."
+
+choice = gets.chomp
+```
+The Case Statement
+if and else are powerful, but we can get bogged down in ifs and elsifs if we have a lot of conditions to check. Thankfully, Ruby provides us with a concise alternative: the case statement. The syntax looks like this:
+```
+case language
+  when "JS"
+    puts "Websites!"
+  when "Python"
+    puts "Science!"
+  when "Ruby"
+    puts "Web apps!"
+  else
+    puts "I don't know!"
+end
+```
+
+sample
+```
+movies = {
+  StarWars: 4.8, 
+  Divergent: 4.7
+  }
+
+puts "What would you like to do? "
+
+choice = gets.chomp
+
+case choice
+when "add"
+  puts "Added!"
+when "update"
+  puts "Updated!"
+when "display"
+  puts "Movies!"
+when "delete"
+  puts "Deleted!"
+else
+  puts "Error!"
+end
+```
