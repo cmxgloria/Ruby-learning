@@ -697,3 +697,17 @@ StarWars
 What is the new rating? 
 5
 
+Dsiplay
+
+```
+What would you like to do? 
+update
+What movie would you like to update? 
+StarWars
+What is the new rating? 
+5
+```
+#What would you like to do? 
+display
+StarWars: 4.8
+Divergent: 4.7
