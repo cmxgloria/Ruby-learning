@@ -551,3 +551,149 @@ else
   puts "Error!"
 end
 ```
+
+Prompting: Redux!
+```
+movies = {
+  StarWars: 4.8, 
+  Divergent: 4.7
+  }
+
+puts "What would you like to do? "
+
+choice = gets.chomp
+
+case choice
+when "add"
+  puts "What movie would you like to add? "
+  title = gets.chomp
+  puts "What rating does the movie have? "
+  rating = gets.chomp
+  movies[title.to_s] = rating
+when "update"
+  puts "Updated!"
+when "display"
+  puts "Movies!"
+when "delete"
+  puts "Deleted!"
+else
+  puts "Error!"
+end
+```
+Not My Type
+Ruby’s .to_sym method can convert a string to a symbol, and .to_i will convert a string to an integer.
+```
+movies = {
+  StarWars: 4.8, 
+  Divergent: 4.7
+  }
+
+puts "What would you like to do? "
+
+choice = gets.chomp
+
+case choice
+when "add"
+  puts "What movie would you like to add? "
+  title = gets.chomp.to_sym
+  puts "What rating does the movie have? "
+  rating = gets.chomp
+  movies[title] = rating.to_i
+when "update"
+  puts "Updated!"
+when "display"
+  puts "Movies!"
+when "delete"
+  puts "Deleted!"
+else
+  puts "Error!"
+end
+```
+#What would you like to do? 
+add
+What movie would you like to add? 
+lion king
+What rating does the movie have? 
+4.5
+
+Error! Error!
+```
+movies = {
+  StarWars: 4.8, 
+  Divergent: 4.7
+  }
+
+puts "What would you like to do? "
+
+choice = gets.chomp
+
+case choice
+when "add"
+  puts "What movie would you like to add? "
+  title = gets.chomp
+  if movies[title.to_sym].nil? 
+    puts "What rating does the movie have? "
+    rating = gets.chomp
+    movies[title.to_sym] = rating.to_i
+  else
+    puts "That movie already exists! Its rating is #{movies[title.to_sym]}."
+  end
+when "update"
+  puts "Updated!"
+when "display"
+  puts "Movies!"
+when "delete"
+  puts "Deleted!"
+else
+  puts "Error!"
+end
+```
+
+
+Update
+```
+movies = {
+  StarWars: 4.8, 
+  Divergent: 4.7
+  }
+
+puts "What would you like to do? "
+
+choice = gets.chomp
+
+case choice
+when "add"
+  puts "What movie would you like to add? "
+  title = gets.chomp
+  if movies[title.to_sym].nil? 
+    puts "What rating does the movie have? "
+    rating = gets.chomp
+    movies[title.to_sym] = rating.to_i
+  else
+    puts "That movie already exists! Its rating is #{movies[title.to_sym]}."
+  end
+when "update"
+  puts "What movie would you like to update? "
+  title = gets.chomp
+  if movies[title.to_sym].nil? 
+    puts "That movie does not exist."
+  else
+    puts "What is the new rating? "
+    rating = gets.chomp
+    movies[title.to_sym] = rating.to_i
+  end
+when "display"
+  puts "Movies!"
+when "delete"
+  puts "Deleted!"
+else
+  puts "Error!"
+end
+```
+#What would you like to do? 
+update
+What movie would you like to update? 
+StarWars
+What is the new rating? 
+5
+
