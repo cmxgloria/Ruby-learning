@@ -234,3 +234,81 @@ caption = "A giraffe surrounded by "
 caption <<"weezards!" # Me, too!
 puts caption
 ```
+
+
+String Interpolation
+You can always use plain old + or << to add a variable value into a string:
+```
+drink = "espresso"
+"I love " + drink
+# ==> I love espresso
+"I love " << drink
+# ==> I love espresso
+```
+But if you want to do it for non-string values, you have to use .to_s to make it a string:
+```
+age = 26
+"I am " + age.to_s + " years old."
+# ==> "I am 26 years old."
+"I am " << age.to_s << " years old."
+# ==> "I am 26 years old."
+```
+This is complicated, and complicated is not the Ruby way. A better way to do this is with string interpolation. The syntax looks like this:
+```
+"I love #{drink}."
+# ==> I love espresso.
+"I am #{age} years old."
+# ==> I am 26 years old.
+```
+All you need to do is place the variable name inside #{} within a string!
+
+```
+favorite_things = ["Ruby", "espresso", "candy"]
+
+puts "A few of my favorite things:"
+
+favorite_things.each do |thing|
+  puts "I love #{thing}!"
+end
+```
+#A few of my favorite things:
+I love Ruby!
+I love espresso!
+I love candy!
+
+One-Liners
+```
+puts "One is less than two!" if 1 < 2
+```
+
+The Ternary Operator
+```
+three = 3
+puts three == 3 ? "Of course." : "What?"
+# ==> puts "Of course."
+```
+
+In Case of Many Options
+```
+puts "What's your favorite language?"
+language = gets.chomp
+
+case language
+when "Ruby"
+  puts "Ruby is great for web apps!"
+when "Python"
+  puts "Python is great for science."
+when "JavaScript"
+  puts "JavaScript makes websites awesome."
+when "HTML"
+  puts "HTML is what websites are made of!"
+when  "CSS"
+  puts "CSS makes websites pretty."
+else
+  puts "I don't know that language!"
+end
+```
+#What's your favorite language?
+Ruby
+Ruby is great for web apps!
+
