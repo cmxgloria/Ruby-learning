@@ -520,5 +520,34 @@ print ints
 ```
 #[1, 3, 0, 7, 11, 482]
 
+Why Proc?
+Why bother saving our blocks as procs? There are two main advantages:
 
+Procs are full-fledged objects, so they have all the powers and abilities of objects. (Blocks do not.)
+Unlike blocks, procs can be called over and over without rewriting them. This prevents you from having to retype the contents of your block every time you need to execute a particular bit of code.
+```
+group_1 = [4.1, 5.5, 3.2, 3.3, 6.1, 3.9, 4.7]
+group_2 = [7.0, 3.8, 6.2, 6.1, 4.4, 4.9, 3.0]
+group_3 = [5.5, 5.1, 3.9, 4.3, 4.9, 3.2, 3.2]
+over_4_feet = Proc.new { |height| height >= 4 }
+can_ride_1 = group_1.select(&over_4_feet)
+can_ride_2 = group_2.select(&over_4_feet)
+can_ride_3 = group_3.select(&over_4_feet)
 
+puts can_ride_1
+puts can_ride_2
+puts can_ride_3
+```
+#[4.1, 5.5, 6.1, 4.7]
+[7.0, 6.2, 6.1, 4.4, 4.9]
+[5.5, 5.1, 4.3, 4.9]
+
+```
+def greeter
+  yield
+end
+
+phrase = Proc.new { puts "Hello there!" }
+
+greeter(&phrase)
+```
