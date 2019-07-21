@@ -408,4 +408,117 @@ end
 end
 ```
 
+Collect 'Em All
+The collect method takes a block and applies the expression in the block to every element in an array. Check it out:
+```
+my_nums = [1, 2, 3]
+my_nums.collect { |num| num ** 2 }
+# ==> [1, 4, 9]
+```
+If we look at the value of my_nums, though, we’ll see it hasn’t changed:
+
+my_nums
+# ==> [1, 2, 3]
+This is because .collect returns a copy of my_nums, but doesn’t change (or mutate) the original my_nums array. If we want to do that, we can use .collect! with an exclamation point:
+
+my_nums.collect! { |num| num ** 2 }
+# ==> [1, 4, 9]
+my_nums
+# ==> [1, 4, 9]
+Recall that the ! in Ruby means “this method could do something dangerous or unexpected!” In this case, it mutates the original array instead of creating a new one.
+
+```
+fibs = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
+double = Proc.new {|x| x * 2}
+
+doubled_fibs = fibs.collect(&double)
+
+puts doubled_fibs
+```
+#[2, 2, 4, 6, 10, 16, 26, 42, 68, 110]
+
+Learning to Yield
+Why do some methods accept a block and others don’t? It’s because methods that accept blocks have a way of transferring control from the calling method to the block and back again. We can build this into the methods we define by using the yield keyword.
+
+```
+def block_test
+  puts "We're in the method!"
+  puts "Yielding to the block..."
+  yield
+  puts "We're back in the method!"
+end
+
+block_test { puts ">>> We're in the block!" }
+```
+#We're in the method!
+ Yielding to the block...
+ >>> We're in the block!
+ We're back in the method
+ 
+ Yielding With Parameters
+ ```
+ def yield_name(name)
+  puts "In the method! Let's yield."
+  yield("Kim")
+  puts "In between the yields!"
+  yield(name)
+  puts "Block complete! Back in the method."
+end
+
+yield_name("Gloria") { |n| puts "My name is #{n}." }
+```
+#In the method! Let's yield.
+My name is Kim.
+In between the yields!
+My name is Gloria.
+Block complete! Back in the method.
+
+Try It Yourself!
+```
+def double(num)
+  yield(num)
+end
+
+double(16) {|x| puts x * 2}
+
+```
+#32
+
+Keeping Your Code DRY
+Because of this, blocks can’t be saved to variables and don’t have all the powers and abilities of a real object. For that, we’ll need… procs!
+
+You can think of a proc as a “saved” block: just like you can give a bit of code a name and turn it into a method, you can name a block and turn it into a proc. Procs are great for keeping your code DRY, which stands for Don’t Repeat Yourself. With blocks, you have to write your code out each time you need it; with a proc, you write your code once and can use it many times!
+
+```
+multiples_of_3 = Proc.new do |n|
+  n % 3 == 0
+end
+
+print (1..100).to_a.select(&multiples_of_3)
+```
+#[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99]
+
+Proc Syntax
+Procs are easy to define! You just call Proc.new and pass in the block you want to save. Here’s how we’d create a proc called cube that cubes a number (raises it to the third power):
+
+cube = Proc.new { |x| x ** 3 }
+We can then pass the proc to a method that would otherwise take a block, and we don’t have to rewrite the block over and over!
+
+[1, 2, 3].collect!(&cube)
+# ==> [1, 8, 27]
+[4, 5, 6].map!(&cube)
+# ==> [64, 125, 216]
+(The .collect! and .map! methods do the exact same thing.)
+
+The & is used to convert the cube proc into a block (since .collect! and .map! normally take a block). We’ll do this any time we pass a proc to a method that expects a block.
+```
+floats = [1.2, 3.45, 0.91, 7.727, 11.42, 482.911]
+round_down = Proc.new { |x| x.floor }
+ints = floats.collect(&round_down)
+print ints
+```
+#[1, 3, 0, 7, 11, 482]
+
+
 
