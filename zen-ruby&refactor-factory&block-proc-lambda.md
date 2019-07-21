@@ -551,3 +551,64 @@ phrase = Proc.new { puts "Hello there!" }
 
 greeter(&phrase)
 ```
+
+Unlike blocks, we can call procs directly by using Ruby’s .call method. Check it out!
+```
+test = Proc.new { # does something }
+test.call
+```
+Remember: there’s always more than one way to do something in Ruby.
+
+```
+hi = Proc.new { puts "Hello!" }
+
+hi.call
+```
+
+Symbols, Meet Procs
+```
+strings = ["1", "2", "3"]
+nums = strings.map(&:to_i)
+# ==> [1, 2, 3]
+```
+By mapping &:to_i over every element of strings, we turned each string into an integer!
+```
+numbers_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+strings_array = numbers_array.map(&:to_s)
+puts strings_array
+```
+#["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
+The Ruby Lambda
+Like procs, lambdas are objects. The similarities don’t stop there: with the exception of a bit of syntax and a few behavioral quirks, lambdas are identical to procs.
+
+Check out the code in the editor. See the lambda bit? Typing
+
+lambda { puts "Hello!" }
+Is just about the same as
+
+Proc.new { puts "Hello!" }
+In the example to the right, when we pass the lambda to lambda_demo, the method calls the lambda and executes its code.
+```
+def lambda_demo(a_lambda)
+  puts "I'm the method!"
+  a_lambda.call
+end
+
+lambda_demo(lambda { puts "I'm the lambda!" })
+```
+#I'm the method!
+I'm the method!
+
+Lambda Syntax
+```
+strings = ["leonardo", "donatello", "raphael", "michaelangelo"]
+# Write your code below this line!
+
+symbolize = lambda {|x| x.to_sym}
+symbols = strings.collect(&symbolize)
+print symbols
+```
+#[:leonardo, :donatello, :raphael, :michaelangelo]
+
