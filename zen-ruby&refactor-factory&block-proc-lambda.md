@@ -312,3 +312,100 @@ end
 Ruby
 Ruby is great for web apps!
 
+Conditional Assignment
+```
+favorite_animal ||= "cat"
+puts favorite_animal
+```
+
+Implicit Return
+A Ruby method will automatically return the value of the last expression evaluated, so you just need to put the correct expression in the body of square—no return necessary!
+
+You can calculate the square of a number n by writing either
+
+n * n
+or
+
+rb n ** 2
+
+```
+def square(num)
+  num*num
+end
+```
+
+'For' Shame!
+All right! Last one: let’s do something about the decidedly un-Ruby for loop in the editor.
+```
+10.times do
+  puts "Knock knock."
+  puts "Who's there?"
+end
+```
+
+# THE REFACTOR FACTORY
+What You'll Be Fixing
+```
+require 'prime'   # This is a module. We'll cover these soon!
+
+def first_n_primes(n)
+
+  unless n.is_a? Integer
+    return "n must be an integer."
+  end
+
+  if n <= 0
+    return "n must be greater than 0."
+  end
+  
+  return Prime.first n
+end
+
+first_n_primes(10)
+```
+
+Omit Needless Words
+One of the most common suggestions when it comes to writing is to omit needless words, and it applies just as much to writing Ruby as writing stories.
+
+There are two control structures to change here:
+
+The unless on line 6
+The if on line 10
+```
+require 'prime'   # This is a module. We'll cover these soon!
+
+def first_n_primes(n)
+  return "n must be an integer." unless n.is_a? Integer
+  return "n must be greater than 0." if n <= 0
+  return Prime.first n
+end
+
+first_n_primes(10)
+```
+
+Less is More
+Great work! This code looks better already.
+
+We can remove even more, however. There’s one return statement in this code that we can change from explicit to implicit!
+
+Recall that Ruby will automatically return the value of the last expression it evaluates.
+
+# BLOCKS, PROCS, AND LAMBDAS
+You Know This!
+```
+[1, 2, 3].each do |num|
+  puts num
+end
+# ==> Prints 1, 2, 3 on separate lines
+
+[1, 2, 3].each { |num| puts num }
+# ==> Prints 1, 2, 3 on separate lines
+```
+
+```
+5.times do 
+  puts "I'm a block!"
+end
+```
+
+
