@@ -346,3 +346,84 @@ end
 my_message = Message.new("Ian", "Alex")
 
 ```
+
+
+# VIRTUAL COMPUTER
+
+What You'll Be Building
+Now that you’ve learned all about classes and objects in Ruby, you can create any kind of Ruby object your heart desires. In this project, we’ll use our newfound knowledge to create a class, Machine, and generate instances of that class that can manipulate imaginary files for us.
+```
+class Machine
+  @@users = {}
+  
+  def initialize(username, password)
+    @username = username
+    @password = password
+    @@users[username] = password
+    @files = {}
+  end
+  
+  def create(filename)
+    time = Time.now
+    @files[filename] = time
+    puts "#{filename} was created by #{@username} at #{time}."
+  end
+  
+  def Machine.get_users
+    @@users
+  end
+end
+
+my_machine = Machine.new("eric", 01234)
+your_machine = Machine.new("you", 56789)
+
+my_machine.create("groceries.txt")
+your_machine.create("todo.txt")
+
+puts "Users: #{Machine.get_users}"
+```
+#groceries.txt was created by eric at 2019-07-22 04:34:57 +0000.
+todo.txt was created by you at 2019-07-22 04:34:57 +0000.
+Users: {"eric"=>668, "you"=>56789}
+
+Have a little class
+Add a class variable called @@users to your Computer class. Set it equal to an empty hash.
+
+In your initialize method, set @@users[username] = password so that your @@users hash keeps usernames as keys with each username’s password as the associated value.
+```
+class Computer
+  @@users = {}
+  def initialize(username, password)
+    @username = username
+    @password = password
+    @files = {}
+    @@users[username] = password
+  end
+end
+```
+
+Getting More Creative
+Inside your Computer class, define a method called create with a single parameter, filename.
+
+Inside create, declare a variable called time and set it equal to the current time (using Time.now).
+
+Next, inside create, add a new key/value pair to the @files hash. Use the filename key to store the value time.
+
+For the final step in create, please puts a message telling the user that a new file was created. Feel free to put in any information you like; the one we used in exercise 1 printed the filename, the username, and the time.
+```
+class Computer
+  @@users = {}
+  def initialize(username, password)
+    @username = username
+    @password = password
+    @files = {}
+    @@users[username] = password
+  end
+  
+  def create(filename)
+    time = Time.now
+    @files[filename] = time
+    puts "#{filename} was created at #{time} by #{@username}. "
+  end
+end
+```
