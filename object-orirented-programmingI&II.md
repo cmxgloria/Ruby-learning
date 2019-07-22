@@ -516,3 +516,183 @@ end
 my_computer = Computer.new("superUser", "12345")
 my_computer.create('grocery')
 ```
+
+# BANKING ON RUBY
+What You'll Be Building
+```
+class Account
+  attr_reader :name, :balance
+  def initialize(name, balance=100)
+    @name = name
+    @balance = balance
+  end
+  
+  def display_balance(pin_number)
+    puts pin_number == pin ? "Balance: $#{@balance}." : pin_error
+  end
+  
+  def withdraw(pin_number, amount)
+    if pin_number == pin
+      @balance -= amount
+      puts "Withdrew #{amount}. New balance: $#{@balance}."
+    else
+      puts pin_error
+    end
+  end
+  
+  private
+  
+  def pin
+    @pin = 1234
+  end 
+  
+  def pin_error
+    "Access denied: incorrect PIN."
+  end
+end
+
+my_account = Account.new("Eric", 1_000_000)
+my_account.withdraw(11, 500_000)
+my_account.display_balance(1234)
+my_account.withdraw(1234, 500_000)
+my_account.display_balance(1234)
+```
+
+Create an account class
+```
+class Account
+  attr_reader :name, :balance
+  def initialize(name, balance=100)
+    @name = name
+    @balance = balance
+  end
+end
+```
+
+Private Affairs
+```
+class Account
+  attr_reader :name
+  attr_reader :balance
+  def initialize(name, balance=100)
+    @name = name
+    @balance = balance
+  end
+
+  private
+  def pin
+    @pin = 1234
+  end
+  def pin_error
+    return "Access denied: incorrect PIN."
+  end 
+end
+```
+
+Displaying the Balance
+Something important to note: you can explicitly declare your public methods public, or you can omit public and your methods will be public by default. However! If you don’t use public, you need to put your public methods before the private keyword, since private affects every method after it appears. If you put your public methods below private and don’t label them public, they’ll be private, too!
+```
+class Account
+  attr_reader :name
+  attr_reader :balance
+  def initialize(name, balance=100)
+    @name = name
+    @balance = balance
+  end
+   def display_balance(pin_number)
+    puts pin_number == pin ? "Balance: $#{@balance}" : "pin_error"
+   end
+
+  private
+  def pin
+    @pin = 1234
+  end
+  def pin_error
+    return "Access denied: incorrect PIN."
+  end 
+ 
+end
+```
+
+Making a Withdrawal
+Now let’s add in our second public method, which will allow us to withdraw money from our account.
+
+The trick to this one is to realize that since @balance can only be accessed from inside the class, we’ll want to use @balance -= amount to decrease the balance by a certain amount.
+
+``
+class Account
+  attr_reader :name
+  attr_reader :balance
+  def initialize(name, balance=100)
+    @name = name
+    @balance = balance
+  end
+  
+  public
+  def display_balance(pin_number)
+    if pin_number == @pin
+      puts "Balance: $#{@balance}."
+    else
+      puts pin_error
+    end
+  end
+  
+  def withdraw(pin_number,amount)
+    if pin_number == @pin
+      @balance -= amount
+      puts "Withdrew #{amount}."
+    else
+      puts pin_error
+    end
+  end
+
+  private
+  def pin
+    @pin = 1234
+  end
+  def pin_error
+    return "Access denied: incorrect PIN."
+  end 
+end
+```
+
+Opening an Account
+```
+class Account
+  attr_reader :name
+  attr_reader :balance
+  def initialize(name, balance=100)
+    @name = name
+    @balance = balance
+  end
+  
+  public
+  def display_balance(pin_number)
+    if pin_number == @pin
+      puts "Balance: $#{@balance}."
+    else
+      puts pin_error
+    end
+  end
+  
+  def withdraw(pin_number,amount)
+    if pin_number == @pin
+      @balance -= amount
+      puts "Withdrew #{amount}."
+    else
+      puts pin_error
+    end
+  end
+
+  private
+  def pin
+    @pin = 1234
+  end
+  def pin_error
+    return "Access denied: incorrect PIN."
+  end 
+end
+
+checking_account = Account.new("Eric", 1_000_000)
+```
+
