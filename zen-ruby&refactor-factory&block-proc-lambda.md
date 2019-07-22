@@ -604,11 +604,88 @@ I'm the method!
 Lambda Syntax
 ```
 strings = ["leonardo", "donatello", "raphael", "michaelangelo"]
-# Write your code below this line!
-
 symbolize = lambda {|x| x.to_sym}
 symbols = strings.collect(&symbolize)
 print symbols
 ```
 #[:leonardo, :donatello, :raphael, :michaelangelo]
+
+Try your own
+That symbolize lambda was pretty cool. Let’s riff on it with a lambda that checks to see if each element in an array is a symbol. We can do this checking with the .is_a? method, which returns true if an object is the type of object named and false otherwise:
+
+:hello.is_a? Symbol
+# ==> true
+The word Symbol has to be capitalized when you’re doing an .is_a? check!
+```
+my_array = ["raindrops", :kettles, "whiskers", :mittens, :packages]
+symbol_filter= lambda {|x| x.is_a? Symbol}
+symbols = my_array.select(&symbol_filter)
+puts symbols
+```
+#[:kettles, :mittens, :packages]
+
+Quick Review
+
+A block is just a bit of code between do..end or {}. It’s not an object on its own, but it can be passed to methods like .each or .select.
+A proc is a saved block we can use over and over.
+A lambda is just like a proc, only it cares about the number of arguments it gets and it returns to its calling method rather than returning immediately.
+
+Been Around the Block a Few Times
+
+```
+odds_n_ends = [:weezard, 42, "Trady Blix", 3, true, 19, 12.345]
+ints = odds_n_ends.select {|x|x.is_a? Integer}
+puts ints
+```
+
+Creating a Proc
+```
+ages = [23, 101, 7, 104, 11, 94, 100, 121, 101, 70, 44]
+under_100 = Proc.new {|num| num < 100}
+age = ages.select(&under_100)
+puts age
+```
+
+Passing Your Proc to a Method
+```
+ages = [23, 1, 7, 104, 11, 94, 100, 121, 101, 70, 44]
+youngsters = ages.select(&under_100)
+under_100 = Proc.new {|num| num < 100}
+puts youngst
+```
+
+Creating a Lambda
+```
+crew = {
+  captain: "Picard",
+  first_officer: "Riker",
+  lt_cdr: "Data",
+  lt: "Worf",
+  ensign: "Ro",
+  counselor: "Troi",
+  chief_engineer: "LaForge",
+  doctor: "Crusher"
+}
+first_half = lambda {|k,v| v < 'M'}
+member = crew.select(&first_half)
+puts member
+```
+#{:lt_cdr=>"Data", :chief_engineer=>"LaForge", :doctor=>"Crusher"}
+
+Passing Your Lambda to a Method
+```
+crew = {
+  captain: "Picard",
+  first_officer: "Riker",
+  lt_cdr: "Data",
+  lt: "Worf",
+  ensign: "Ro",
+  counselor: "Troi",
+  chief_engineer: "LaForge",
+  doctor: "Crusher"
+}
+first_half = lambda {|k,v| v < 'M'}
+a_to_m = crew.select(&first_half)
+puts a_to_m
+```
 
