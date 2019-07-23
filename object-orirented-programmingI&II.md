@@ -696,3 +696,5 @@ end
 checking_account = Account.new("Eric", 1_000_000)
 ```
 
+Going Public
+
