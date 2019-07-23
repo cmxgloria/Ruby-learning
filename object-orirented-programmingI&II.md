@@ -619,7 +619,7 @@ Now let’s add in our second public method, which will allow us to withdraw mon
 
 The trick to this one is to realize that since @balance can only be accessed from inside the class, we’ll want to use @balance -= amount to decrease the balance by a certain amount.
 
-``
+```
 class Account
   attr_reader :name
   attr_reader :balance
@@ -697,4 +697,89 @@ checking_account = Account.new("Eric", 1_000_000)
 ```
 
 Going Public
+Methods are public by default in Ruby, so if you don’t specify public or private, your methods will be public. In this case, however, we want to make it clear to people reading our code which methods are public. We do this by putting public before our method definitions, like so:
+```
+class ClassName
+  # Some class stuff
+  public
+  def public_method
+    # public_method stuff
+  end
+end
+```
+Note that everything after the public keyword through the end of the class definition will now be public unless we say otherwise.
+```
+class Dog
+  def initialize(name, breed)
+    @name = name
+    @breed = breed
+  end
+  
+  public
+  def bark
+    puts "Woof!"
+  end  
+end
+```
+
+Private! Keep Out!
+```
+class Dog
+  def initialize(name, breed)
+    @name = name
+    @breed = breed
+  end
+  
+  public
+  def bark
+    puts "Woof!"
+  end  
+  private
+  def id
+    @id_number = 12345
+  end
+end
+```
+
+attr_reader, attr_writer
+
+We saw in the lesson on classes that Ruby needs methods in order to access attributes. For instance, if we want to access a @name instance variable, we had to write something like
+```
+def name
+  @name
+end
+```
+Well, no longer! We can use attr_reader to access a variable and attr_writer to change it. If we write
+
+```
+class Person
+  attr_reader :name
+  attr_writer :name
+  def initialize(name)
+    @name = name
+  end
+end
+```
+Ruby does something like this for us automatically:
+```
+def name
+  @name
+end
+
+def name=(value)
+  @name = value
+end
+```
+Like magic, we can read and write variables as we please! We just pass our instance variables (as symbols) to attr_reader or attr_writer.
+
+(That name= might look funny, but you’re allowed to put an = sign in a method name. That’s just a Ruby convention saying, “hey, this method sets a value!”)
+```class Person
+  attr_reader :name
+  attr_writer :job
+  def initialize(name, job)
+    @name = name
+    @job = job
+  end
+end
+```
 
