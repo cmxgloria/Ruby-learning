@@ -145,15 +145,15 @@ rate=1
 =end
 ```
 
-##new chapter PUTTING THE FORM IN FORMATTER
-##What You'll Be Building
+## new chapter PUTTING THE FORM IN FORMATTER
+## What You'll Be Building
 read a user’s input and correct his or her capitalization.
 ```
 print "What's your first name? "
 first_name = gets.chomp
 first_name.capitalize!
  
-print "What's your last name? "
+print "What's your last name? "gets is the Ruby method that gets input from the user. When getting input, Ruby automatically adds a blank line (or newline) after each bit of input; chomp removes that extra line. (Your program will work fine without chomp, but you’ll get extra blank lines everywhere.)
 last_name = gets.chomp
 last_name.capitalize!
  
@@ -249,6 +249,7 @@ answer.capitalize!
 ```
 1.It capitalizes the first letter of a string and makes the rest of the letters lower case.We assign the result to answer2
 2.the next line might look a little strange, we don’t assign the result of capitalize to a variable. Instead you might notice the ! at the end of capitalize. This modifies the value contained within the variable answer itself. The next time you use the variable answer you will get the results of answer.capitalize
+
 ```
 print "What's your first name? "
 first_name = gets.chomp
