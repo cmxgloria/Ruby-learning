@@ -186,6 +186,7 @@ state.upcase!
 puts state
 
 puts "My name is #{first_name} #{last_name} and I am from #{city},  #{state}."
+##Your name is Gloria Chen and you're from Melbourne, VIC!
 //it prints automatically each answer with the right format as you see 'put' straight away after each question
 ```
 ##Getting Input
