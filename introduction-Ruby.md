@@ -1,6 +1,9 @@
 https://app.pluralsight.com/player?course=ruby-fundamentals&author=alex-korban&name=ruby-fundamentals-module4&clip=2&mode=live
 pluralsight.com
 
+https://pragprog.com/titles/ltp2/learn-to-program-2nd-edition        ruby
+
+
 codecadamy
 #INTRODUCTION TO RUBY
 Ruby is a powerful, flexible programming language you can use in web/Internet development, to process text, to create games, and as part of the popular Ruby on Rails web framework. Ruby is:
