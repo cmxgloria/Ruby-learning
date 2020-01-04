@@ -20,7 +20,7 @@ until counter > 10
 end
 ```
 
-More Assignment Operators
+## More Assignment Operators
  +=, -=, *=, and /=.
  
  The 'For' Loop
@@ -28,10 +28,10 @@ More Assignment Operators
  for num in 1...10
   puts num
 end
-#1 2 3 4 5 6 7 8 9
+#1 2 3 4 5 6 7 8 9(... not including last number)
 ```
 
-Inclusive and Exclusive Ranges
+## Inclusive and Exclusive Ranges
 The reason this program counted to 9 and not 10 was that we used three dots in the range; this tells Ruby to exclude the final number in the count: for num in 1...10 means “go up to but don’t include 10.” If we use two dots, this tells Ruby to include the highest number in the range.
 ```
 for num in 1..15
@@ -46,7 +46,8 @@ for num in 1..20
    puts num
  end
  ```
- The Loop Method
+ 
+ ## The Loop Method
  loop { print "Hello, world!" }
 In Ruby, curly braces ({}) are generally interchangeable with the keywords do (to open the block) and end (to close it). Knowing this, we can write a smarter loop than the one above: rb i = 0 loop do i += 1 print "#{i}" break if i > 5 end
 
@@ -88,12 +89,12 @@ The .each Iterator
  The syntax looks like this:
 
 object.each { |item| 
-  # Do something 
+  
 }
 You can also use the do keyword instead of {}:
 
 object.each do |item| 
-  # Do something 
+ 
 end
 The variable name between | | can be anything you like: it’s just a placeholder for each element of the object you’re using .each on.
 
