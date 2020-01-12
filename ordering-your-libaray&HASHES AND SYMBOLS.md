@@ -432,7 +432,7 @@ lion_king
 
 
 
-```
+
 # A NIGHT AT THE MOVIES
 What You'll Be Building
 ```
@@ -569,6 +569,7 @@ when "add"
   title = gets.chomp
   puts "What rating does the movie have? "
   rating = gets.chomp
+  #Add that movie/rating pair to the movies hash
   movies[title.to_s] = rating
 when "update"
   puts "Updated!"
