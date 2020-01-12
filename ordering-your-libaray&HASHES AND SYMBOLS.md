@@ -316,7 +316,7 @@ The two changes are:
 
 It's important to note that even though these keys have colons at the end instead of the beginning, they're still symbols!
 
-```rb
+rb
 puts new_hash
 # => { :one => 1, :two => 2, :three => 3 }
 
